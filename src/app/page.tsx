@@ -1,6 +1,6 @@
-import FormTodoList from "@/components/form-todo-list";
 import myImage from "../assets/todo-list.svg";
 import Image from "next/image";
+import Todolist from "@/components/todo-list";
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
 
       <div className="flex-1 bg-custom-dark-secundary min-h-[calc(100vh-200px)]">
         <div className="absolute top-[10.81rem] left-1/2 transform -translate-x-1/2">
-          <FormTodoList />
+          <Todolist />
         </div>
       </div>
     </div>

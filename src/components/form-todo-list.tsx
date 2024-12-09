@@ -4,6 +4,7 @@ import { CirclePlus } from "lucide-react";
 import { useState } from "react";
 import TasksList from "./tasks-list";
 import TasksMessage from "./tasks-message";
+import HeaderTaskCard from "./header-task-card";
 
 type Task = {
   id: number;
@@ -79,26 +80,11 @@ const FormTodoList = () => {
       </form>
       <div className="flex flex-col gap-6 mt-16">
         {/* Contagem de tarefas */}
-        <div className="flex justify-between">
-          <div className="flex gap-2">
-            <p className="text-[#4EA8DE] text-sm">Tarefas criadas</p>
-            <span className="bg-[#333333] flex items-center rounded-full px-2 text-xs">
-              {listaDeTarefas.length}
-            </span>
-          </div>
-          <div className="flex gap-2">
-            <p className="text-[#8284FA] text-sm">Concluídas</p>
-            <span className="bg-[#333333] flex items-center rounded-full px-2 text-xs">
-              {listaDeTarefas.filter((tarefa) => tarefa.done).length} de{" "}
-              {listaDeTarefas.length}
-            </span>
-          </div>
-        </div>
+        <HeaderTaskCard listaDeTarefas={listaDeTarefas} />
 
         {/* Lista de tarefas */}
 
         {listaDeTarefas.length === 0 && <TasksMessage />}
-
         <div className="w-[46.75rem] custom-scroll overflow-y-auto max-h-[550px] flex flex-col gap-6 pr-4">
           {listaDeTarefas.map((item) => (
             <TasksList
