@@ -1,17 +1,14 @@
-import { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
+import { Inter } from "next/font/google";
 
-// Usando o Inter diretamente do `next/font/google`
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  display: "swap",
-});
+const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Todo List",
-  description: "Todo List",
+  description: "Manage your tasks efficiently",
+  icons: {
+    icon: "/todo-list.svg", // Caminho para o SVG na pasta `public`
+  },
 };
 
 export default function RootLayout({
@@ -21,7 +18,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <head />
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }
